@@ -1,0 +1,87 @@
+.toolbar-background{
+  border-color: #ffe560;
+  background: #ffe560;
+}
+
+page-page1 {
+  ion-content {
+    background: rgb(255, 250, 222) url(../img/food.png) fixed;
+    -webkit-background-size: 100%;
+    -moz-background-size: 100%;
+    background-size: 100%;
+
+    ion-card {
+      position: relative;
+      text-align: center;
+    }
+
+    .card-title {
+      position: absolute;
+      top: 36%;
+      font-size: 2.0em;
+      width: 100%;
+      font-weight: bold;
+      color: #fff;
+      text-shadow: #845d4f 1px 1px, #845d4f -1px 1px, #845d4f -1px -1px, #845d4f 1px -1px;
+    }
+
+    .card-back {
+      height: 100%;
+      width: 100%;
+      top: 0;
+      position: absolute;
+      background-color: rgba(255, 185, 0, 0.31);
+    }
+
+    .blur {
+      -webkit-filter: blur(4px);
+      -moz-filter: blur(4px);
+      -ms-filter: blur(4px);
+      -o-filter: blur(4px);
+      filter: blur(4px);
+    }
+
+    img{
+      object-fit: cover;
+      height: 200px;
+    }
+
+    .card-subtitle {
+      font-size: 1.0em;
+      position: absolute;
+      top: 52%;
+      width: 100%;
+      color: #fff;
+    }
+
+  }
+  .has-refresher>.scroll-content{
+    border: none;
+  }
+  .refresher-refreshing-icon {
+    margin-top: 10px;
+  }
+}
+
+page-modal {
+  ion-content{
+    background: rgb(255, 250, 222) url(../img/food.png) fixed;
+    -webkit-background-size: 100%;
+    -moz-background-size: 100%;
+    background-size: 100%;
+
+    img{
+      object-fit: cover;
+      height: 200px;
+      width: 100%;
+      display: inherit;
+    }
+
+    .description {
+      margin: 10px;
+      p{
+        margin: 0;
+      }
+    }
+  }
+}

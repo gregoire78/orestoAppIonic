@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>O'Resto</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="card-background-page">
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+  <ion-card cache-view="false" *ngFor="let data of datas" (click)="presentModal({restaurant: data})" tappable>
+    <img src="http://api.gregoirejoncour.xyz/images/{{data.image}}"/>
+    <div class="card-back blur"></div>
+    <div class="card-title">{{ data.name }}</div>
+  </ion-card>
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)" *ngIf="shouldHide">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>
