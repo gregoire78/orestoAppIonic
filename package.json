@@ -9,7 +9,8 @@
     "ionic:build": "ionic-app-scripts build",
     "ionic:serve": "ionic-app-scripts serve",
     "ionic:android": "ionic run android",
-    "ionic:resources": "ionic resources"
+    "ionic:resources": "ionic resources --clean-cache",
+    "ionic:platform reset": "ionic platform rm android && ionic platform add android"
   },
   "dependencies": {
     "@angular/common": "2.2.1",
@@ -39,7 +40,8 @@
     "cordova-plugin-console",
     "cordova-plugin-device",
     "cordova-plugin-splashscreen",
-    "ionic-plugin-keyboard"
+    "ionic-plugin-keyboard",
+    "cordova-plugin-headercolor"
   ],
   "cordovaPlatforms": [],
   "description": "MyIonic2Project: An Ionic project"
