@@ -41,7 +41,8 @@
     "cordova-plugin-device",
     "cordova-plugin-splashscreen",
     "ionic-plugin-keyboard",
-    "cordova-plugin-headercolor"
+    "cordova-plugin-headercolor",
+    "cordova-plugin-x-toast"
   ],
   "cordovaPlatforms": [],
   "description": "MyIonic2Project: An Ionic project"
