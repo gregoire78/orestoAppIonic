@@ -6,7 +6,6 @@ import { RestaurantServices } from '../../services/RestaurantServices';
 
 import { Page2 } from '../page2/page2';
 import { ModalContentPage } from  './modal-content';
-import { Toast } from 'ionic-native';
 
 @Component({
   selector: 'page-page1',
@@ -20,11 +19,6 @@ export class Page1 {
   public shouldHide:boolean;
 
   constructor(public navCtrl: NavController, public restaurantServices: RestaurantServices, public loadingCtrl: LoadingController, public modalCtrl: ModalController) {
-    Toast.show("I'm a toast", '5000', 'bottom').subscribe(
-      toast => {
-        console.log(toast);
-      }
-    );
     let loader = this.loadingCtrl.create({
       content: "Attendez svp...",
       //duration: 1000

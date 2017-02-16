@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
-import { StatusBar, Splashscreen, HeaderColor} from 'ionic-native';
+import { StatusBar, Splashscreen, HeaderColor, Toast, Network } from 'ionic-native';
 
 import { Page1 } from '../pages/page1/page1';
 
@@ -35,6 +35,18 @@ export class MyApp {
       StatusBar.backgroundColorByHexString('#a97b1a');
 
       Splashscreen.hide();
+
+      // check internet connection
+      Toast.showWithOptions({
+        message: `Connexion : ${Network.type}`,
+        duration: 5000,
+        position: 'bottom',
+        styling: { backgroundColor: '#FFF8D6', textColor: '#291400' }
+      }).subscribe(
+        toast => {
+          console.log(toast);
+        }
+      );
     });
   }
 
