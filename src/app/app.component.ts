@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
-import { StatusBar, Splashscreen, HeaderColor, Toast, Network } from 'ionic-native';
+import { StatusBar, Splashscreen, HeaderColor, Toast, Network, ScreenOrientation } from 'ionic-native';
 
 import { Page1 } from '../pages/page1/page1';
 
@@ -35,6 +35,9 @@ export class MyApp {
       StatusBar.backgroundColorByHexString('#a97b1a');
 
       Splashscreen.hide();
+
+      // lock rotate screen
+      ScreenOrientation.lockOrientation('portrait');
 
       // check internet connection
       Toast.showWithOptions({

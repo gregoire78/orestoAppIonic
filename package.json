@@ -43,7 +43,8 @@
     "ionic-plugin-keyboard",
     "cordova-plugin-headercolor",
     "cordova-plugin-x-toast",
-    "cordova-plugin-network-information"
+    "cordova-plugin-network-information",
+    "cordova-plugin-screen-orientation"
   ],
   "cordovaPlatforms": [],
   "description": "MyIonic2Project: An Ionic project"
