@@ -31,14 +31,16 @@ export class MyApp {
         // Okay, so the platform is ready and our plugins are available.
         // Here you can do any higher level native things you might need.
         //StatusBar.styleDefault();
-        HeaderColor.tint("#ffe560");
+        HeaderColor.tint("#ffe560").then(() => {console.log('colored')});
         StatusBar.overlaysWebView(true);
         StatusBar.backgroundColorByHexString('#a97b1a');
 
         Splashscreen.hide();
 
         // lock rotate screen
-        ScreenOrientation.lockOrientation('portrait');
+        ScreenOrientation.lockOrientation('portrait').then(() => {
+          console.log('locked');
+        });
 
         // check internet connection
         this.toaster(`Connexion : ${Network.type}`);
