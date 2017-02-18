@@ -41,18 +41,36 @@ export class MyApp {
         ScreenOrientation.lockOrientation('portrait');
 
         // check internet connection
-        Toast.showWithOptions({
-          message: `Connexion : ${Network.type}`,
-          duration: 5000,
-          position: 'bottom',
-          styling: {backgroundColor: '#FFF8D6', textColor: '#291400'}
-        }).subscribe(
-          toast => {
-            console.log(toast);
-          }
-        );
+        this.toaster(`Connexion : ${Network.type}`);
+        // watch network for a disconnect
+        /*let disconnectSubscription = */
+        Network.onDisconnect().subscribe(() => {
+          this.toaster('network was disconnected :-(');
+        });
+        // watch network for a connection
+        /*let connectSubscription = */
+        Network.onConnect().subscribe(() => {
+          setTimeout(() => {
+            if (Network.type === 'wifi') {
+              this.toaster('we got a wifi connection, woohoo!');
+            }
+          }, 3000);
+        });
       }
     });
+  }
+
+  toaster(message: string){
+    Toast.showWithOptions({
+      message: message,
+      duration: 5000,
+      position: 'bottom',
+      styling: {backgroundColor: '#FFF8D6', textColor: '#291400'}
+    }).subscribe(
+      toast => {
+        console.log(toast);
+      }
+    );
   }
 
   openPage(page) {
