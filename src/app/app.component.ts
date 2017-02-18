@@ -26,30 +26,32 @@ export class MyApp {
   }
 
   initializeApp() {
-    this.platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
-      //StatusBar.styleDefault();
-      HeaderColor.tint("#ffe560");
-      StatusBar.overlaysWebView(true);
-      StatusBar.backgroundColorByHexString('#a97b1a');
+    this.platform.ready().then((readySource) => {
+      if (readySource != 'dom' && this.platform.is('cordova')) {
+        // Okay, so the platform is ready and our plugins are available.
+        // Here you can do any higher level native things you might need.
+        //StatusBar.styleDefault();
+        HeaderColor.tint("#ffe560");
+        StatusBar.overlaysWebView(true);
+        StatusBar.backgroundColorByHexString('#a97b1a');
 
-      Splashscreen.hide();
+        Splashscreen.hide();
 
-      // lock rotate screen
-      ScreenOrientation.lockOrientation('portrait');
+        // lock rotate screen
+        ScreenOrientation.lockOrientation('portrait');
 
-      // check internet connection
-      Toast.showWithOptions({
-        message: `Connexion : ${Network.type}`,
-        duration: 5000,
-        position: 'bottom',
-        styling: { backgroundColor: '#FFF8D6', textColor: '#291400' }
-      }).subscribe(
-        toast => {
-          console.log(toast);
-        }
-      );
+        // check internet connection
+        Toast.showWithOptions({
+          message: `Connexion : ${Network.type}`,
+          duration: 5000,
+          position: 'bottom',
+          styling: {backgroundColor: '#FFF8D6', textColor: '#291400'}
+        }).subscribe(
+          toast => {
+            console.log(toast);
+          }
+        );
+      }
     });
   }
 
