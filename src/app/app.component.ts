@@ -38,17 +38,13 @@ export class MyApp {
         Splashscreen.hide();
 
         // lock rotate screen
-        ScreenOrientation.lockOrientation('portrait').then(() => {
-          console.log('locked');
-        });
+        ScreenOrientation.lockOrientation('portrait').then(() => console.log('locked'));
 
         // check internet connection
         this.toaster(`Connexion : ${Network.type}`);
         // watch network for a disconnect
         /*let disconnectSubscription = */
-        Network.onDisconnect().subscribe(() => {
-          this.toaster('network was disconnected :-(');
-        });
+        Network.onDisconnect().subscribe(() => this.toaster('network was disconnected :-('));
         // watch network for a connection
         /*let connectSubscription = */
         Network.onConnect().subscribe(() => {

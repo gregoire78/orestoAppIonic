@@ -71,7 +71,7 @@ export class Page1 {
 
   presentModal(dataResto) {
     let modal = this.modalCtrl.create(ModalContentPage, dataResto);
-    modal.present();
+    modal.present().then(() => console.log('modal'));
   }
 
 }

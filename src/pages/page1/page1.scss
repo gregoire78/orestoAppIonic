@@ -64,18 +64,20 @@ page-page1 {
 }
 
 page-modal {
+
+  img{
+  object-fit: cover;
+  height: 100px;
+  width: 100%;
+  display: inherit;
+}
   ion-content{
     background: rgb(255, 250, 222) url(../assets/img/food.png) fixed;
     -webkit-background-size: 100%;
     -moz-background-size: 100%;
     background-size: 100%;
 
-    img{
-      object-fit: cover;
-      height: 200px;
-      width: 100%;
-      display: inherit;
-    }
+
 
     .description {
       margin: 10px;
