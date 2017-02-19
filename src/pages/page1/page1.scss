@@ -1,4 +1,4 @@
-.toolbar-background{
+.toolbar-background {
   border-color: #ffe560;
   background: #ffe560;
 }
@@ -41,7 +41,7 @@ page-page1 {
       filter: blur(4px);
     }
 
-    img{
+    img {
       object-fit: cover;
       height: 200px;
     }
@@ -55,7 +55,7 @@ page-page1 {
     }
 
   }
-  .has-refresher>.scroll-content{
+  .has-refresher > .scroll-content {
     border: none;
   }
   .refresher-refreshing-icon {
@@ -64,26 +64,57 @@ page-page1 {
 }
 
 page-modal {
+  $header: 100px;
+  $header-top: 40px;
+  ion-header {
+    .title {
+      text-align: center;
+      position: absolute;
+      top: $header-top;
+      width: 100%;
+      height: $header;
+      font-size: 2em;
+      color: white;
+      font-weight: bold;
+      text-shadow: #845d4f 1px 1px, #845d4f -1px 1px, #845d4f -1px -1px, #845d4f 1px -1px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-  img{
-  object-fit: cover;
-  height: 100px;
-  width: 100%;
-  display: inherit;
-}
-  ion-content{
+    .title-back {
+      height: $header;
+      width: 100%;
+      top: $header-top;
+      position: absolute;
+      background-color: rgba(255, 229, 96, 0.35);
+    }
+    .toolbar {
+      min-height: $header-top;
+    }
+  }
+
+  img {
+    object-fit: cover;
+    height: $header;
+    width: 100%;
+    display: inherit;
+  }
+  ion-content {
     background: rgb(255, 250, 222) url(../assets/img/food.png) fixed;
     -webkit-background-size: 100%;
     -moz-background-size: 100%;
     background-size: 100%;
 
-
-
-    .description {
+    .description, .location {
       margin: 10px;
-      p{
+      p {
         margin: 0;
       }
+    }
+
+    ion-slides {
+      height: auto;
     }
   }
 }

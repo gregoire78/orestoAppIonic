@@ -1,18 +1,36 @@
 <ion-header>
+  <!--  <ion-toolbar>
+      <ion-buttons start>
+        <button ion-button (click)="dismiss()">
+          <span ion-text color="primary" showWhen="ios">Cancel</span>
+          <ion-icon name="md-close" showWhen="android, windows"></ion-icon>
+        </button>
+      </ion-buttons>
+
+      <ion-title>
+        {{restaurant.name}}
+      </ion-title>
+
+    </ion-toolbar>-->
   <ion-toolbar>
-    <ion-buttons start>
+    <ion-buttons left>
       <button ion-button (click)="dismiss()">
         <span ion-text color="primary" showWhen="ios">Cancel</span>
         <ion-icon name="md-close" showWhen="android, windows"></ion-icon>
       </button>
     </ion-buttons>
-
-    <ion-title>
-      {{restaurant.name}}
-    </ion-title>
-
+    <ion-buttons end>
+      <button ion-button icon-only>
+        <ion-icon name="map"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-toolbar>
-  <img src="http://api.gregoirejoncour.xyz/images/{{restaurant.image}}"/>
+  <div>
+    <img src="http://api.gregoirejoncour.xyz/images/{{restaurant.image}}"/>
+    <div class="title-back"></div>
+    <div class="title">{{restaurant.name}}</div>
+  </div>
+
 </ion-header>
 
 <ion-content>
@@ -21,24 +39,21 @@
     <h2>Description</h2>
     <p>{{restaurant.description}}</p>
   </div>
-  <ion-list>
-    <ion-item>
-      <h2>{{restaurant.name}}</h2>
-      <p>{{restaurant.description}}</p>
-    </ion-item>
-  </ion-list>
+  <div class="location">
+    <h2>Adresse</h2>
+    <p>{{restaurant.location.address}}, {{restaurant.location.city.toUpperCase()}} -
+      {{restaurant.location.postal_code}}</p>
+  </div>
+  <h2 style="margin-left: 10px; margin-right: 10px">Images</h2>
+  <ion-slides>
+    <ion-slide>
+      <img src="http://api.gregoirejoncour.xyz/images/{{restaurant.image}}"/>
+    </ion-slide>
+  </ion-slides>
+  <!--  <ion-list>
+      <ion-item>
+        <h2>{{restaurant.name}}</h2>
+        <p>{{restaurant.description}}</p>
+      </ion-item>
+    </ion-list>-->
 </ion-content>
-
-<ion-footer no-border>
-
-  <ion-toolbar>
-    <ion-title>I'm a footer</ion-title>
-
-    <ion-buttons end>
-      <button ion-button icon-only (click)="dismiss()">
-        <ion-icon name="options"></ion-icon>
-      </button>
-    </ion-buttons>
-  </ion-toolbar>
-
-</ion-footer>
