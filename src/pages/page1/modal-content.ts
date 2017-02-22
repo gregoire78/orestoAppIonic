@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
-import { Platform, NavParams, ViewController } from 'ionic-angular';
+import { Platform, NavParams, ViewController, NavController } from 'ionic-angular';
+import { Page2 } from '../page2/page2';
 
 @Component({
   selector: 'page-modal',
@@ -8,16 +9,24 @@ import { Platform, NavParams, ViewController } from 'ionic-angular';
 })
 export class ModalContentPage {
   restaurant;
+  public page: any;
+
 
   constructor(
+    public navCtrl: NavController,
     public platform: Platform,
     public params: NavParams,
-    public viewCtrl: ViewController
+    public viewCtrl: ViewController,
   ) {
+    this.page = Page2;
     this.restaurant = this.params.get('restaurant');
   }
 
   dismiss() {
     this.viewCtrl.dismiss();
+  }
+
+  openPage(page) {
+    this.navCtrl.push(page, {item:{name:"fgfg", description:"fdfgdfg"}});
   }
 }
