@@ -27,6 +27,6 @@ export class ModalContentPage {
   }
 
   openPage(page) {
-    this.navCtrl.push(page, {item:{name:"fgfg", description:"fdfgdfg"}});
+    this.navCtrl.push(page, {restaurant:this.restaurant});
   }
 }
