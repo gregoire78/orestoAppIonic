@@ -17,6 +17,35 @@
                     autocapitalize="none"></ion-textarea>
     </ion-item>
   </ion-list>
+  <ion-list>
+    <ion-item>
+      <ion-label color="primary" stacked>Latitude</ion-label>
+      <ion-input type="number" placeholder="{{ restaurant.location.latitude }}"
+                 value="{{ restaurant.location.latitude }}"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary" stacked>Longitude</ion-label>
+      <ion-input type="number" placeholder="{{ restaurant.location.longitude }}"
+                 value="{{ restaurant.location.longitude }}"></ion-input>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-item>
+      <ion-label color="primary" stacked>Adresse</ion-label>
+      <ion-input type="text" placeholder="{{ restaurant.location.address }}"
+                 value="{{ restaurant.location.address }}"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary" stacked>Ville</ion-label>
+      <ion-input type="text" placeholder="{{ restaurant.location.city }}"
+                 value="{{ restaurant.location.city }}"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary" stacked>Code postal</ion-label>
+      <ion-input type="number" [placeholder]="restaurant.location.postal_code"
+                 [value]="restaurant.location.postal_code"></ion-input>
+    </ion-item>
+  </ion-list>
 
   <!--<ion-list>
         <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
