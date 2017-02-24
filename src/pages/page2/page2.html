@@ -5,58 +5,54 @@
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-item>
-      <ion-label color="primary" stacked>Nom du restaurant</ion-label>
-      <ion-input type="text" placeholder="{{ restaurant.name }}" autocapitalize="none"
-                 value="{{ restaurant.name }}"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label color="primary" stacked>Description du restaurant</ion-label>
-      <ion-textarea [(ngModel)]="restaurant.description" rows="8" placeholder="{{ restaurant.description }}"
-                    autocapitalize="none"></ion-textarea>
-    </ion-item>
-  </ion-list>
-  <ion-list>
-    <ion-item>
-      <ion-label color="primary" stacked>Latitude</ion-label>
-      <ion-input type="number" placeholder="{{ restaurant.location.latitude }}"
-                 value="{{ restaurant.location.latitude }}"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label color="primary" stacked>Longitude</ion-label>
-      <ion-input type="number" placeholder="{{ restaurant.location.longitude }}"
-                 value="{{ restaurant.location.longitude }}"></ion-input>
-    </ion-item>
-  </ion-list>
-  <ion-list>
-    <ion-item>
-      <ion-label color="primary" stacked>Adresse</ion-label>
-      <ion-input type="text" placeholder="{{ restaurant.location.address }}"
-                 value="{{ restaurant.location.address }}"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label color="primary" stacked>Ville</ion-label>
-      <ion-input type="text" placeholder="{{ restaurant.location.city }}"
-                 value="{{ restaurant.location.city }}"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label color="primary" stacked>Code postal</ion-label>
-      <ion-input type="number" [placeholder]="restaurant.location.postal_code"
-                 [value]="restaurant.location.postal_code"></ion-input>
-    </ion-item>
-  </ion-list>
+  <form [formGroup]="todo" (ngSubmit)="logForm()">
+    <ion-list>
+      <ion-item>
+        <ion-label color="primary" stacked>Nom du restaurant</ion-label>
+        <ion-input type="text" autocapitalize="none" formControlName="name"
+                   [placeholder]="restaurant.name"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label color="primary" stacked>Description du restaurant</ion-label>
+        <ion-textarea rows="8" autocapitalize="none" formControlName="description"
 
-  <!--<ion-list>
-        <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
-            <ion-icon [name]="item.icon" item-left></ion-icon>
-            {{item.title}}
-            <div class="item-note" item-right>
-                {{item.note}}
-            </div>
-        </button>
+                      [placeholder]="restaurant.description"></ion-textarea>
+      </ion-item>
     </ion-list>
-    <div *ngIf="selectedItem" padding>
-        You navigated here from <b>{{selectedItem.title}}</b>
-    </div>-->
+    <ion-list>
+      <ion-item>
+        <ion-label color="primary" stacked>Latitude</ion-label>
+        <ion-input type="number" name="latitude" formControlName="latitude"
+
+                   [placeholder]="restaurant.location.latitude"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label color="primary" stacked>Longitude</ion-label>
+        <ion-input type="number" formControlName="longitude"
+
+                   [placeholder]="restaurant.location.longitude"></ion-input>
+      </ion-item>
+    </ion-list>
+    <ion-list>
+      <ion-item>
+        <ion-label color="primary" stacked>Adresse</ion-label>
+        <ion-input type="text" formControlName="address"
+
+                   [placeholder]="restaurant.location.address"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label color="primary" stacked>Ville</ion-label>
+        <ion-input type="text" formControlName="city"
+
+                   [placeholder]="restaurant.location.city"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label color="primary" stacked>Code postal</ion-label>
+        <ion-input type="number" formControlName="postal_code"
+
+                   [placeholder]="restaurant.location.postal_code"></ion-input>
+      </ion-item>
+    </ion-list>
+    <button ion-button round type="submit" [disabled]="!todo.valid">Mettre à jour</button>
+  </form>
 </ion-content>
